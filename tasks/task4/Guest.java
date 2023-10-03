@@ -13,5 +13,16 @@ public class Guest {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
+
+
+    }
+    @Override
+    public String toString() {
+        return "Guest{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailId='" + emailId + '\'' +
+                '}';
     }
 }

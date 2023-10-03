@@ -1,23 +1,58 @@
 package tasks.task4;
 
 public class HotelService {
+    public static void main(String[] args) {
 
-    String name;
-    Room [] rooms = {new Room(101, 1, (new Guest(10101, "Anjali", "Choudhary", "Emailtoanjalichoudhary")), "Deluxe", 4599),
-                     new Room(203, 2, (new Guest(20103, "Prasun", "Verma", "prasunverma12")), "deluxe", 4599),
-                     new Room(405,4, (new Guest(40105, "Richa","Choudhary", "richamanchan4")), "deluxe", 4599),
-            new Room(309, 3 , (new Guest(30109,"Aayush", "Chaturvedi","aayushchaturvedi09")),"Normal", 3900)
-};
 
-    void findGuestCheckedInRoom(int roomId) {
+        Guest guest1 = new Guest(1, "Anjali", "Choudhary", "anjali@gamil.com");
+        Guest guest2 = new Guest(2, "Prasun", "Verma", "prasun@gamil.com");
+        Guest guest3 = new Guest(3, "Richa", "Choudhary", "richa@gamil.com");
+        Guest guest4 = new Guest(4, "Aayush", "Chaturvedi", "aayush@gamil.com");
+
+
+        Room[] demo = new Room[8];
+
+        Room room1 = new Room(401, 1, guest1, "single", 1999);
+        demo[0] = room1;
+        Room room2 = new Room(402, 1, null, "single", 1999);
+        demo[1] = room2;
+        Room room3 = new Room(403, 1, guest2, "deluxe", 2999);
+        demo[2] = room3;
+        Room room4 = new Room(404, 1, null, "single", 1999);
+        demo[3] = room4;
+        Room room5 = new Room(405, 1, guest3, "deluxe", 2999);
+        demo[4] = room5;
+        Room room6 = new Room(406, 1, null, "single", 1999);
+        demo[5] = room6;
+        Room room7 = new Room(407, 1, guest4, "deluxe", 2999);
+        demo[6] = room7;
+        Room room8 = new Room(408, 1, null, "single", 1999);
+        demo[7] = room8;
+
+
+        Hotel hotel = new Hotel("Raddison", demo);
+
+
+        Guest g1 = hotel.findGuestCheckedInRoom(401);
+        System.out.println(" 1) findGuestCheckedInRoom using roomID: " + g1);
+
+        int c1 = hotel.guestsCount();
+        System.out.println(" 2) guestsCount: " + c1);
+
+        double e1 = hotel.earningToday();
+        System.out.println(" 3) earningToday: " + e1);
+        System.out.println(" 4) All Guests: ");
+
+        Guest[] ag1 = hotel.findAllGuest();
+        for(int i=0; i<ag1.length;i++){
+            if(ag1[i] !=null){
+
+                System.out.println(ag1[i]);
+
+            }
+        }
 
     }
 
-    int guestsCount(){
 
-    }
-    double earningToday() {
-
-    }; // add prices of rooms where guest is staying
-    Guest[] findAllGuests();
 }

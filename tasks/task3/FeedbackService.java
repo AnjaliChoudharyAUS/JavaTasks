@@ -1,24 +1,47 @@
 package tasks.task3;
 
-import tasks.task3.Customer;
-import tasks.task3.Feedback;
 
 public class FeedbackService {
-    Feedback feedbackStore[] ={new Feedback(1, "My services were not fullfilled.", new Customer(101, "Anjali")),
-            new Feedback(2, "Store is great.", new Customer(102, "Prasun")),
-            new Feedback(3, "Cashier is rude.", new Customer(103, "Richa"))};;
-    int feedbackIndex;
-            Customer customerStore[]={new Customer(101, "Anjali"),
-                    new Customer(102, "Prasun"),
-                    new Customer(103, "Richa")};
-            int customerIndex;
-            void register(Customer customer){
-                customerStore[customerIndex]=customer;
-                customerIndex++;
+
+    public Feedback[] feedbacks = new Feedback[5];
+    int feedbackIndex = 0;
+    public Customer[] customers = new Customer[5];
+
+    int customerIndex = 0;
+
+    public void registerCustomer(Customer customer){
+
+        customers[customerIndex]  = customer;
+        customerIndex++;
+    }
+
+    public void addFeedback(Feedback feedback){
+        feedbacks[feedbackIndex]  = feedback;
+        feedbackIndex++;
+    }
+
+    public Feedback fetchFeedbackByCustomerId(int id){
+        for (Feedback feedbackList:feedbacks) {
+            if(feedbackList.getCustomer().getId() == id){
+                return feedbackList;
             }
-            void addFeedback(Feedback feedback){
-                feedbackStore[feedbackIndex]=feedback;
-                feedbackIndex++;
-            }
+        }
+        return null;
+    }
+
+    public  void displayCustomer(Customer[] customers1){
+        for (Customer customer:customers1) {
+            System.out.println("Customer id and name ::" +customer.getName()+" "+customer.getId());
+        }
+    }
+
+    public void displayFeedBack(Feedback[] feedbacks1){
+        for (Feedback feedback:feedbacks1) {
+            System.out.println("Feedback are::"+feedback.getDescription()+" "+feedback.getCustomer().getName());
+        }
+    }
+
+
+
 
 }
